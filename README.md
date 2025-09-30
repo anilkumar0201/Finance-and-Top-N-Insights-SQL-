@@ -44,8 +44,7 @@ LIMIT 100;
 
 -- Get top 5 markets for fiscal year 2021
 CALL get_top_n_markets_by_net_sales(2021, 5);
-
-
+```
 
 Fact and dimesnion tables 
 
