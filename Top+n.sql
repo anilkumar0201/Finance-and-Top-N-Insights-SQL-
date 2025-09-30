@@ -1,26 +1,18 @@
 
+---
 
-SELECT 
-    	    s.date, 
-            s.customer_code,
-            s.product_code, 
-            p.product, p.variant, 
-            s.sold_quantity, 
-            g.gross_price as gross_price_per_item,
-            ROUND(s.sold_quantity*g.gross_price,2) as gross_price_total,
-            pre.pre_invoice_discount_pct
-	FROM fact_sales_monthly s
-	JOIN dim_product p
-        	ON s.product_code=p.product_code
-	JOIN fact_gross_price g
-    		ON g.fiscal_year=s.fical_year
-    		AND g.product_code=s.product_code
-	JOIN fact_pre_invoice_deductions as pre
-        	ON pre.customer_code = s.customer_code AND
-    		pre.fiscal_year=s.fical_year
-	WHERE 
-    		s.fical_year=2021     
-	LIMIT 1500000;
+### **01_create_udf.sql**
 
+```sql
+DELIMITER //
 
+CREATE FUNCTION `get_fiscal_year`(calendar_date DATE)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    DECLARE fiscal_year INT;
+    SET fiscal_year = YEAR(DATE_ADD(calendar_date, INTERVAL 4 MONTH));
+    RETURN fiscal_year;
+END //
 
+DELIMITER ;
