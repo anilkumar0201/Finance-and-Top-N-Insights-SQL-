@@ -1,5 +1,11 @@
+Fact and dimension tables
+
+<img width="1261" height="702" alt="Screenshot 2025-09-24 123720" src="https://github.com/user-attachments/assets/58e24431-fd46-43bb-b32e-d3924651750a" />
+
+ 
  • SQL-Based Financial Analytics
 Finance Analytics
+
 1. User-Defined Functions
 
 get_fiscal_year(date) → maps a calendar date into the fiscal year (April–March).
