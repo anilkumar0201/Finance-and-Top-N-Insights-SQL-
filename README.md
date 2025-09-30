@@ -1,4 +1,4 @@
-# SQL-Based Sales Analytics | Atliq Hardware Data
+# SQL-Based Sales Analytics
 
 **Project Goal:**  
 Analyze over 1.5 million sales transactions to calculate gross and net sales, generate monthly and fiscal-year reports, and identify top-performing customers and markets.
